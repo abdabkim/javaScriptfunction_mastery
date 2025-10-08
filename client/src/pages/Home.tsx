@@ -45,23 +45,23 @@ export default function Home() {
           <img 
             src={heroImage} 
             alt="JavaScript code visualization" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105 transition-transform duration-700 hover:scale-100"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
         
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in-up">
           <h1 className="text-5xl font-bold mb-6 text-white drop-shadow-lg">
             Master JavaScript Functions
           </h1>
-          <p className="text-xl mb-8 text-white/90 drop-shadow">
+          <p className="text-xl mb-8 text-white/90 drop-shadow animate-fade-in-up animation-delay-200">
             Learn everything about JavaScript functions with interactive examples, 
             live code execution, and comprehensive lessons from beginner to advanced.
           </p>
           <Link href="/basics">
-            <Button size="lg" className="backdrop-blur-md bg-primary border border-primary-border" data-testid="button-get-started">
+            <Button size="lg" className="backdrop-blur-md bg-primary border border-primary-border animate-fade-in-up animation-delay-300 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20" data-testid="button-get-started">
               Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
         </div>
@@ -70,14 +70,18 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Features */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Learn Here?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up">Why Learn Here?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature) => (
-              <Card key={feature.title} className="p-6 text-center hover-elevate transition-all">
-                <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-4">
-                  <feature.icon className="h-8 w-8 text-primary" />
+            {features.map((feature, index) => (
+              <Card 
+                key={feature.title} 
+                className="p-6 text-center hover-elevate transition-all duration-300 hover:scale-105 hover:shadow-xl animate-fade-in-up group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="inline-flex p-3 rounded-lg bg-primary/10 mb-4 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                  <feature.icon className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-6" />
                 </div>
-                <h3 className="font-semibold mb-2">{feature.title}</h3>
+                <h3 className="font-semibold mb-2 transition-colors duration-300 group-hover:text-primary">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </Card>
             ))}
@@ -86,24 +90,28 @@ export default function Home() {
 
         {/* Topics */}
         <div>
-          <h2 className="text-3xl font-bold text-center mb-4">What You'll Learn</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4 animate-fade-in-up">What You'll Learn</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up animation-delay-100">
             Explore comprehensive lessons covering every aspect of JavaScript functions, 
             from fundamental concepts to advanced patterns.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topics.map((topic) => (
+            {topics.map((topic, index) => (
               <Link key={topic.path} href={topic.path}>
-                <Card className="p-6 hover-elevate transition-all h-full cursor-pointer group" data-testid={`topic-card-${topic.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Card 
+                  className="p-6 hover-elevate transition-all duration-300 h-full cursor-pointer group hover:scale-105 hover:shadow-xl animate-fade-in-up border-2 border-transparent hover:border-primary/20" 
+                  data-testid={`topic-card-${topic.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <topic.icon className="h-6 w-6 text-primary" />
+                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                      <topic.icon className="h-6 w-6 text-primary transition-transform duration-300 group-hover:rotate-12" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
                         {topic.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">{topic.description}</p>
+                      <p className="text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground/70">{topic.description}</p>
                     </div>
                   </div>
                 </Card>

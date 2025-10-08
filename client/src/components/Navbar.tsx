@@ -21,12 +21,12 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 hover-elevate rounded-lg px-3 py-2">
-            <Code2 className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold">JS Function Mastery</span>
+          <Link href="/" className="flex items-center gap-2 hover-elevate rounded-lg px-3 py-2 group transition-all duration-300">
+            <Code2 className="h-6 w-6 text-primary transition-transform duration-300 group-hover:rotate-12" />
+            <span className="text-lg font-semibold transition-colors duration-300 group-hover:text-primary">JS Function Mastery</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,7 +37,7 @@ export default function Navbar() {
                   variant={location === item.path ? "secondary" : "ghost"}
                   size="sm"
                   data-testid={`nav-${item.label.toLowerCase()}`}
-                  className={location === item.path ? "border-b-2 border-primary rounded-b-none" : ""}
+                  className={`transition-all duration-300 ${location === item.path ? "border-b-2 border-primary rounded-b-none" : "hover:scale-105"}`}
                 >
                   {item.label}
                 </Button>
@@ -51,6 +51,7 @@ export default function Navbar() {
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               data-testid="button-theme-toggle"
+              className="transition-transform duration-300 hover:rotate-180"
             >
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>

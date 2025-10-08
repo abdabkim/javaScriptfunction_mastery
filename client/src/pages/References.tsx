@@ -58,11 +58,15 @@ export default function References() {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">Primary References</h2>
         <div className="space-y-6">
-          {references.map((ref) => (
-            <Card key={ref.name} className="p-6 hover-elevate transition-all">
+          {references.map((ref, index) => (
+            <Card 
+              key={ref.name} 
+              className="p-6 hover-elevate transition-all duration-300 hover:scale-105 hover:shadow-xl group animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
-                  <ref.icon className="h-6 w-6 text-primary" />
+                <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                  <ref.icon className="h-6 w-6 text-primary transition-transform duration-300 group-hover:rotate-12" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-4 mb-2">

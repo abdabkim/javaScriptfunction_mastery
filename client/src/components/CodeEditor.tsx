@@ -59,7 +59,7 @@ export default function CodeEditor({ initialCode, title = "JavaScript", onRun }:
   };
 
   return (
-    <div className="border rounded-lg overflow-hidden bg-card" data-testid="code-editor">
+    <div className="border rounded-lg overflow-hidden bg-card transition-all duration-300 hover:shadow-lg" data-testid="code-editor">
       <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/30">
         <span className="text-sm font-medium text-muted-foreground">{title}</span>
         <div className="flex gap-2">
@@ -68,8 +68,9 @@ export default function CodeEditor({ initialCode, title = "JavaScript", onRun }:
             variant="ghost"
             onClick={handleReset}
             data-testid="button-reset-code"
+            className="transition-transform duration-300 hover:scale-105"
           >
-            <RotateCcw className="h-4 w-4 mr-2" />
+            <RotateCcw className="h-4 w-4 mr-2 transition-transform duration-300 hover:rotate-180" />
             Reset
           </Button>
           <Button
@@ -77,6 +78,7 @@ export default function CodeEditor({ initialCode, title = "JavaScript", onRun }:
             onClick={handleRun}
             disabled={isRunning}
             data-testid="button-run-code"
+            className="transition-all duration-300 hover:scale-105 hover:shadow-md"
           >
             {isRunning ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />

@@ -10,8 +10,8 @@ export default function FunctionBasics() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <Breadcrumb items={[{ label: "Function Basics" }]} />
       
-      <h1 className="text-4xl font-bold mb-4">Function Basics</h1>
-      <p className="text-lg text-muted-foreground mb-8">
+      <h1 className="text-4xl font-bold mb-4 animate-fade-in-up">Function Basics</h1>
+      <p className="text-lg text-muted-foreground mb-8 animate-fade-in-up animation-delay-100">
         Functions are the building blocks of JavaScript. They allow you to package code into reusable blocks 
         that perform specific tasks. Let's explore how to create and use functions effectively.
       </p>

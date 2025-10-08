@@ -16,19 +16,19 @@ export default function PracticeZone() {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-        <Card className="p-4 text-center">
-          <Target className="h-8 w-8 text-primary mx-auto mb-2" />
-          <h3 className="font-semibold mb-1">Beginner</h3>
+        <Card className="p-4 text-center hover-elevate transition-all duration-300 hover:scale-105 hover:shadow-xl group animate-fade-in-up">
+          <Target className="h-8 w-8 text-primary mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
+          <h3 className="font-semibold mb-1 transition-colors duration-300 group-hover:text-primary">Beginner</h3>
           <p className="text-sm text-muted-foreground">Basic function concepts</p>
         </Card>
-        <Card className="p-4 text-center">
-          <Zap className="h-8 w-8 text-chart-2 mx-auto mb-2" />
-          <h3 className="font-semibold mb-1">Intermediate</h3>
+        <Card className="p-4 text-center hover-elevate transition-all duration-300 hover:scale-105 hover:shadow-xl group animate-fade-in-up animation-delay-100">
+          <Zap className="h-8 w-8 text-chart-2 mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
+          <h3 className="font-semibold mb-1 transition-colors duration-300 group-hover:text-chart-2">Intermediate</h3>
           <p className="text-sm text-muted-foreground">Scope and closures</p>
         </Card>
-        <Card className="p-4 text-center">
-          <Trophy className="h-8 w-8 text-chart-4 mx-auto mb-2" />
-          <h3 className="font-semibold mb-1">Advanced</h3>
+        <Card className="p-4 text-center hover-elevate transition-all duration-300 hover:scale-105 hover:shadow-xl group animate-fade-in-up animation-delay-200">
+          <Trophy className="h-8 w-8 text-chart-4 mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
+          <h3 className="font-semibold mb-1 transition-colors duration-300 group-hover:text-chart-4">Advanced</h3>
           <p className="text-sm text-muted-foreground">Complex patterns</p>
         </Card>
       </div>
