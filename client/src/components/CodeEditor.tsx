@@ -59,16 +59,16 @@ export default function CodeEditor({ initialCode, title = "JavaScript", onRun }:
   };
 
   return (
-    <div className="border rounded-lg overflow-hidden bg-card transition-all duration-300 hover:shadow-lg" data-testid="code-editor">
-      <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/30">
-        <span className="text-sm font-medium text-muted-foreground">{title}</span>
+    <div className="border-2 border-primary/20 rounded-lg overflow-hidden bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/40 hover-elevate" data-testid="code-editor">
+      <div className="flex items-center justify-between px-4 py-2 border-b bg-primary/5">
+        <span className="text-sm font-medium text-primary">{title}</span>
         <div className="flex gap-2">
           <Button
             size="sm"
             variant="ghost"
             onClick={handleReset}
             data-testid="button-reset-code"
-            className="transition-transform duration-300 hover:scale-105"
+            className="transition-colors duration-300"
           >
             <RotateCcw className="h-4 w-4 mr-2 transition-transform duration-300 hover:rotate-180" />
             Reset
@@ -78,7 +78,7 @@ export default function CodeEditor({ initialCode, title = "JavaScript", onRun }:
             onClick={handleRun}
             disabled={isRunning}
             data-testid="button-run-code"
-            className="transition-all duration-300 hover:scale-105 hover:shadow-md"
+            className="transition-all duration-300 hover:shadow-md"
           >
             {isRunning ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -102,18 +102,18 @@ export default function CodeEditor({ initialCode, title = "JavaScript", onRun }:
       </div>
 
       {output && (
-        <div className={`px-4 py-3 border-t ${
-          output.type === "success" ? "bg-chart-2/10 border-chart-2/20" : "bg-destructive/10 border-destructive/20"
+        <div className={`px-4 py-3 border-t-2 animate-fade-in ${
+          output.type === "success" ? "bg-[hsl(var(--success))]/10 border-[hsl(var(--success))]/30" : "bg-destructive/10 border-destructive/30"
         }`}>
           <div className="flex items-start gap-2">
             {output.type === "success" ? (
-              <CheckCircle className="h-5 w-5 text-chart-2 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="h-5 w-5 text-[hsl(var(--success))] flex-shrink-0 mt-0.5 animate-fade-in" />
             ) : (
-              <XCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+              <XCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5 animate-fade-in" />
             )}
             <div className="flex-1">
               <p className={`text-sm font-medium mb-1 ${
-                output.type === "success" ? "text-chart-2" : "text-destructive"
+                output.type === "success" ? "text-[hsl(var(--success))]" : "text-destructive"
               }`}>
                 {output.type === "success" ? "Output:" : "Error:"}
               </p>
